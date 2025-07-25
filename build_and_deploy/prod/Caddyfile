@@ -1,0 +1,38 @@
+{
+    admin :2019
+    metrics {
+        per_host
+    }
+    auto_https disable_redirects
+}
+
+http://wpdockertest.tw1.ru {
+    header {
+        -Server
+    }
+    redir https://wpdockertest.tw1.ru{uri} permanent
+}
+
+https://wpdockertest.tw1.ru {
+    encode zstd gzip
+    tls valeryzhitnikov91@gmail.com
+    request_body {
+        max_size 100MB
+    }
+    reverse_proxy wordpress:8080 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+    }
+    @static {
+        path *.css *.js *.woff2 *.woff *.ttf *.otf *.jpg *.jpeg *.png *.webp *.svg *.ico
+    }
+    header @static {
+        Cache-Control "public, max-age=31536000"
+    }
+    header {
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        -Via
+        -Server
+    }
+}

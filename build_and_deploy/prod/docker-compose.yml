@@ -1,0 +1,54 @@
+services:
+  wordpress:
+    build: .
+    container_name: prod_wordpress
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_REDIS_HOST', 'redis');
+        define('WP_REDIS_DATABASE', '1');
+      APACHE_RUN_USER: prod
+      APACHE_RUN_GROUP: docker
+    volumes:
+      - ./prod_wordpress:/var/www/html
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:8
+    container_name: prod_redis
+    command:
+      - '--port 6379'
+      - '--bind 127.0.0.1'
+      - '--maxmemory 4G'
+      - '--maxmemory-policy allkeys-lfu'
+    volumes:
+      - redis_data:/data
+    restart: always
+
+  caddy:
+    image: caddy:2.10-alpine
+    container_name: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+
+volumes:
+  redis_data:
+    name: redis_data
+  caddy_data:
+    name: caddy_data
+  caddy_config:
+    name: caddy_config
