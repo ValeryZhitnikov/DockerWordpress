@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ 'main' ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          ARGS: "-rlgoDzvc -i --delete"
+          SSH_PRIVATE_KEY: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
+          SOURCE: "theme/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.PROD_REMOTE_USER }}
+          TARGET: "wordpress-docker/build_and_deploy/prod/prod_wordpress/wp-content/themes/custom_theme"
+          EXCLUDE: "/node_modules/, /docs/, /src/"
