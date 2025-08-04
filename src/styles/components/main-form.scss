@@ -1,0 +1,183 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+@use "@/styles/fonts" as *;
+
+.main-form {
+  background-color: $color-white;
+  border: $border-primary;
+  border-radius: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  @include mobile {
+    padding: 32px 28px;
+  }
+
+  @include desktop {
+    padding: 40px 32px;
+  }
+  
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+
+    @include mobile {
+      gap: 25px;
+    }
+  }
+  
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include desktop {
+      margin-top: 56px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    
+      &-about {
+        margin-top: 41px;
+      }
+    }
+  }
+  
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $color-primary;
+
+    &-textarea {
+      flex-direction: column;
+      align-items: flex-start;
+      border: none;
+
+      .main-form__input-label {
+        width: 100%;
+      }
+    }
+  }
+  
+  &__input-label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $color-primary;
+    line-height: $line-height-regular;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  &__input,
+  &__textarea {
+    min-width: none;
+    width: 100%;
+    font-size: $font-size-base;
+    line-height: $line-height-regular;
+    padding-left: 8px;
+    color: $color-primary;
+    background-color: transparent;
+    border: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  &__textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 25px;
+    padding-bottom: 0;
+    position: relative;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 24px,
+      $color-primary 24px,
+      $color-primary 25px
+    );
+
+    &.wpcf7-not-valid {
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 24px,
+        $color-alert 24px,
+        $color-alert 25px
+      );
+    }
+  }
+  
+  &__or {
+    text-align: center;
+    font-size: $font-size-base;
+    line-height: $line-height-xl;
+
+    @include desktop {
+      margin-top: 20px;
+      margin-bottom: 15px;
+
+      & + * {
+        margin-top: 0;
+      }
+    }
+  }
+  
+  &__file-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+  
+  &__file-icon {
+    font-size: 18px;
+    color: $color-primary;
+  }
+  
+  &__file-text {
+    font-size: $font-size-base;
+    line-height: $line-height-regular;
+  }
+  
+  &__file-input {
+    display: none;
+  }
+  
+  &__privacy {
+    margin-bottom: 30px;
+  }
+  
+  &__checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+  }
+  
+  &__checkbox {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    accent-color: $color-primary;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  &__checkbox-text {
+    font-size: $font-size-sm;
+    color: $color-secondary;
+    line-height: $line-height-regular;
+  }
+  
+  &__submit {
+    display: flex;
+    justify-content: center;
+    
+    .button-main {
+      min-width: 200px;
+    }
+  }
+} 

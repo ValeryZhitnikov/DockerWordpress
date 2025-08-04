@@ -1,0 +1,21 @@
+@use "variables" as *;
+@use "fonts" as *;
+@use "mixins" as *;
+
+body {
+  font-family: $font-primary;
+  line-height: $line-height-regular;
+  color: $color-primary;
+  background-color: $color-background;
+}
+
+.container {
+  max-width: calc(100% - $mr-mobile - $ml-mobile);
+  margin-right: $mr-mobile;
+  margin-left: $ml-mobile;
+
+  @include  desktop {
+    max-width: 1225px;
+    margin: 0 auto;
+  }
+}

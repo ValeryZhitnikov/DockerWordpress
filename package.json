@@ -1,0 +1,38 @@
+{
+  "name": "docker-wordpress",
+  "version": "1.0.0",
+  "description": "WordPress project with Docker and webpack build system",
+  "main": "src/scripts/main.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development --watch",
+    "start": "webpack serve --mode=development",
+    "theme:build": "webpack --mode=production --config theme/webpack.config.js",
+    "theme:dev": "webpack --mode=development --watch --config theme/webpack.config.js"
+  },
+  "keywords": [
+    "wordpress",
+    "docker",
+    "webpack",
+    "theme"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass": "^1.87.0",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.99.7",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "swiper": "^11.2.8"
+  }
+}

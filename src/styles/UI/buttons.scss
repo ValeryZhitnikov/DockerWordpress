@@ -1,0 +1,123 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+@use "@/styles/fonts" as *;
+
+.button-main {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-regular;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  outline: none;
+  
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &_size-regular {
+    padding: 13px 37px;
+    font-size: $font-size-sm;
+  }
+
+  &_size-card { 
+    font-size: $font-size-sm;
+    
+    @include mobile {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    @include desktop {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+
+  &_size-header {
+    @include mobile {
+      padding: 14px 30px;
+      font-size: $font-size-base;
+    }
+
+    @include desktop {
+      padding: 13px 35px;
+      font-size: $font-size-sm;
+    }
+  }
+
+  &_size-footer {
+    @include mobile {
+      padding: 14px 33px;
+      font-size: $font-size-sm;
+    }
+
+    @include desktop {
+      padding: 13px 35px;
+      font-size: $font-size-sm;
+    }
+  }
+
+  &_auto-width {
+    width: auto;
+  }
+
+  &_full-width {
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  &_light {
+    background-color: $color-white;
+    border: $border-primary;
+    color: $color-primary;
+    
+    &:hover {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: $color-white;
+    }
+    
+    &:active {
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+      color: $color-white;
+    }
+    
+    &:disabled {
+      background-color: $color-background-grey;
+      border-color: $color-accent;
+      color: $color-accent;
+    }
+  }
+
+  &_dark {
+    background-color: $color-primary;
+    border: $border-primary;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background-color: $color-background-grey;
+      border-color: $color-white;
+      color: $color-primary;
+    }
+    
+    &:active:not(:disabled) {
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+      color: $color-white;
+    }
+    
+    &:disabled {
+      background-color: $color-accent;
+      border-color: $color-accent;
+      color: $color-white;
+    }
+  } 
+}

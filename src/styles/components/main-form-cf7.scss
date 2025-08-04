@@ -1,0 +1,141 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+@use "@/styles/fonts" as *;
+
+.main-form-cf7 {
+  .wpcf7-form {
+    margin: 0;
+    padding: 0;
+  }
+
+  .wpcf7-form-control-wrap {
+    width: 100%;
+    position: static;
+  }
+
+  .wpcf7-not-valid-tip {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    color: $color-alert;
+    font-size: $font-size-xxxs;
+    margin-top: 5px;
+    font-weight: $font-weight-normal;
+  }
+
+  .main-form__input-wrapper:has(.wpcf7-not-valid) {
+    border-color: $color-alert;
+    .main-form__input-label {
+      color: $color-alert;
+    }
+  }
+
+  .wpcf7-spinner {
+    display: none;
+  }
+
+  .wpcf7-response-output:empty {
+    display: none;
+  }
+
+  .wpcf7-file {
+    display: none;
+  }
+
+  .wpcf7-checkbox {
+    display: none;
+    
+    & + .wpcf7-list-item-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      
+      &::before {
+        content: '';
+        width: 18px;
+        height: 18px;
+        border: 2px solid $color-primary;
+        border-radius: 3px;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+    }
+    
+    &:checked + .wpcf7-list-item-label::before {
+      background-color: $color-primary;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 3L4.5 8.5L2 6' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 10px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .wpcf7-acceptance {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    
+    .wpcf7-list-item {
+      margin: 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .wpcf7-list-item-label {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      font-size: $font-size-prexs;
+      color: $color-primary;
+      line-height: $line-height-l;
+      margin: 0;
+      
+      &::before {
+        content: '';
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+        border: $border-primary;
+        border-radius: 8px;
+        background-color: $color-white;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 19px;
+        height: 28px;
+        left: 10px;
+        top: -5px;
+      }
+    }
+
+    input[type="checkbox"] {
+      display: none;
+
+      &:checked + .wpcf7-list-item-label::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='21' height='22' viewBox='0 0 21 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.04302 21.188C5.04302 20.954 4.99802 20.837 4.90802 20.837L4.28702 21.134C4.28702 21.008 4.21502 20.918 4.07102 20.864L3.85502 20.837C3.71102 20.837 3.53102 20.9 3.31502 21.026C3.27902 20.936 3.23402 20.846 3.18002 20.756C3.12602 20.666 3.08102 20.585 3.04502 20.513C2.81102 20.063 2.57702 19.568 2.34302 19.028C2.12702 18.47 1.92002 17.939 1.72202 17.435C1.54202 16.931 1.39802 16.535 1.29002 16.247C1.21802 16.013 1.13702 15.662 1.04702 15.194C0.957024 14.726 0.867024 14.132 0.777024 13.412C0.975024 13.538 1.12802 13.601 1.23602 13.601C1.36202 13.601 1.47902 13.412 1.58702 13.034C1.64102 13.106 1.74002 13.142 1.88402 13.142C1.99202 13.142 2.07302 13.106 2.12702 13.034L2.55902 12.386L3.04502 12.548H3.07202C3.10802 12.548 3.14402 12.53 3.18002 12.494C3.21602 12.458 3.27002 12.422 3.34202 12.386C3.48602 12.296 3.59402 12.251 3.66602 12.251L3.74702 12.278C4.19702 12.494 4.48502 12.89 4.61102 13.466C4.93502 14.834 5.25902 15.518 5.58302 15.518C5.90702 15.518 6.28502 15.176 6.71703 14.492C6.93303 14.15 7.14902 13.754 7.36502 13.304C7.59903 12.854 7.83303 12.35 8.06702 11.792C8.10302 12.008 8.13902 12.116 8.17502 12.116C8.26502 12.116 8.41802 11.891 8.63402 11.441C8.86802 10.991 9.23702 10.37 9.74102 9.578C10.029 9.092 10.389 8.543 10.821 7.931C11.271 7.319 11.748 6.689 12.252 6.041C12.756 5.393 13.242 4.781 13.71 4.205C14.196 3.629 14.628 3.134 15.006 2.72C15.384 2.306 15.663 2.036 15.843 1.91C16.527 1.442 17.067 0.991999 17.463 0.559999C17.445 0.685999 17.418 0.802999 17.382 0.911C17.364 1.001 17.355 1.064 17.355 1.1C17.355 1.172 17.391 1.208 17.463 1.208L18.219 0.829999V0.937999C18.219 1.082 18.255 1.154 18.327 1.154C18.381 1.154 18.489 1.073 18.651 0.911C18.813 0.748999 18.903 0.631999 18.921 0.559999L18.867 0.937999L19.785 0.398L19.569 0.884C19.857 0.685999 20.064 0.586999 20.19 0.586999C20.262 0.586999 20.316 0.631999 20.352 0.721999C20.388 0.793999 20.406 0.865999 20.406 0.937999C20.406 1.046 20.361 1.172 20.271 1.316C20.181 1.46 20.064 1.631 19.92 1.829C19.812 1.973 19.632 2.189 19.38 2.477C19.146 2.747 18.786 3.152 18.3 3.692C17.814 4.214 17.166 4.943 16.356 5.879C16.14 6.113 15.807 6.527 15.357 7.121C14.907 7.697 14.394 8.372 13.818 9.146C13.26 9.902 12.702 10.667 12.144 11.441C11.586 12.215 11.091 12.917 10.659 13.547C10.227 14.159 9.92102 14.618 9.74102 14.924L8.06702 17.759C7.70703 18.371 7.41003 18.875 7.17602 19.271C6.94202 19.649 6.76202 19.91 6.63602 20.054C6.36602 20.378 6.06902 20.666 5.74502 20.918L5.50202 20.783L5.28602 20.918L5.04302 21.188Z' fill='%23352958'/%3E%3C/svg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  .wpcf7-submit {
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .wpcf7-list-item-label {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+} 

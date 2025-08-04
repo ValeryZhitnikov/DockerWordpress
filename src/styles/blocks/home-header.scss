@@ -1,0 +1,68 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/fonts" as *;
+@use "@/styles/variables" as *;
+
+.home-header {
+  position: relative;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    @include desktop {
+      max-width: 530px;
+    }
+  }
+
+  &__image {
+    @include desktop {
+      margin-left: 135px;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $color-black;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-2xl;
+    line-height: $line-height-regular;
+
+    @include desktop {
+      font-size: $font-size-5xl;
+    }
+
+    @include mobile {
+      max-width: 250px;
+    }
+  }
+
+  &__description {  
+    color: $color-black;
+    font-size: $font-size-prexs;
+    line-height: $line-height-regular;
+
+    @include desktop {
+      font-size: $font-size-2xl;
+      color: $color-primary;
+    }
+  }
+
+  &__around-text {
+    @include desktop {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+}

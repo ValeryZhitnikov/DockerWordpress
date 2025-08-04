@@ -1,0 +1,69 @@
+@use "fonts" as *;
+@use "mixins" as *;
+
+h1, .h1 {
+  @include heading-1;
+}
+
+h2, .h2 {
+  @include heading-2;
+}
+
+h3, .h3 {
+  @include heading-3;
+}
+
+h4, .h4 {
+  @include heading-4;
+}
+
+h5, .h5 {
+  @include heading-5;
+}
+
+h6, .h6 {
+  @include heading-6;
+}
+
+p, .p {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-base;
+  line-height: $line-height-regular;
+  
+  @include desktop {
+    font-weight: $font-weight-light;
+    line-height: $line-height-xl;
+  }
+}
+
+.p2 {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  line-height: $line-height-regular;
+  
+  @include desktop {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+  }
+}
+
+.p3 {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-xs;
+  line-height: $line-height-regular;
+
+  @include desktop {
+    font-weight: $font-weight-light;
+  }
+}
+
+.p4 {
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-base;
+  line-height: $line-height-regular;
+  
+  @include desktop {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-lg;
+  }
+}
