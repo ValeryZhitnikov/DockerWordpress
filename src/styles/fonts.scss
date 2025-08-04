@@ -1,0 +1,152 @@
+@use "mixins" as *;
+@use "variables" as *;
+
+@font-face {
+  font-family: 'Panton';
+  src: url('../fonts/Panton/Panton-Trial-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panton';
+  src: url('../fonts/Panton/Panton-Trial-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panton';
+  src: url('../fonts/Panton/Panton-Trial-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panton';
+  src: url('../fonts/Panton/Panton-Trial-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panton';
+  src: url('../fonts/Panton/Panton-Trial-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panton';
+  src: url('../fonts/Panton/Panton-Trial-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panton';
+  src: url('../fonts/Panton/Panton-Trial-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Font variables
+$font-primary: 'Panton', "Segoe UI", Roboto, sans-serif;
+
+// Font weights
+$font-weight-extralight: 200;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+// Font sizes
+$font-size-xxxs: 0.5625rem;   // 9px
+$font-size-xxs: 0.625rem;     // 10px
+$font-size-xs: 0.75rem;       // 12px
+$font-size-prexs: 0.8125rem;  // 13px
+$font-size-sm: 0.875rem;      // 14px
+$font-size-base: 1rem;        // 16px
+$font-size-lg: 1.125rem;      // 18px
+$font-size-xl: 1.25rem;       // 20px
+$font-size-2xl: 1.5rem;       // 24px
+$font-size-3xl: 1.875rem;     // 30px
+$font-size-4xl: 2.25rem;      // 36px
+$font-size-5xl: 3rem;         // 48px
+
+// Line heights
+$line-height-m: 1.2;
+$line-height-l: 1.5;
+$line-height-xl: 1.625;
+$line-height-regular: 1;
+
+// Typography mixins
+@mixin heading-1 {
+  color: $color-black;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-2xl;
+  line-height: $line-height-regular;
+  
+  @include desktop {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-5xl;
+  }
+}
+
+@mixin heading-2 {
+  color: $color-black;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  line-height: $line-height-l;
+  
+  @include desktop {
+    font-weight: $font-weight-extrabold;
+    font-size: $font-size-5xl;
+    line-height: $line-height-regular;
+  }
+}
+
+@mixin heading-3 {
+  color: $color-black;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  line-height: $line-height-regular;
+  
+  @include desktop {
+    font-size: $font-size-5xl;
+  }
+}
+
+@mixin heading-4 {
+  color: $color-black;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+  line-height: $line-height-regular;
+  
+  @include desktop {
+    font-size: $font-size-2xl;
+  }
+}
+
+@mixin heading-5 {
+  color: $color-black;
+  font-weight: $font-weight-extralight;
+  font-size: $font-size-4xl;
+  line-height: $line-height-regular;
+}
+
+@mixin heading-6 {
+  color: $color-black;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-2xl;
+  line-height: $line-height-regular;
+}

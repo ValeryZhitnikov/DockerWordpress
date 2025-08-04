@@ -1,0 +1,33 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+@use "@/styles/fonts" as *;
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border: $border-primary;
+  border-radius: 8px;
+  
+  & svg {
+    width: 16px;
+    height: 16px;
+    fill: $color-primary;
+  }
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: $color-primary;
+
+    & svg {
+      fill: $color-white;
+
+      & path {
+        fill: $color-white;
+      }
+    }
+  }
+}

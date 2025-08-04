@@ -1,0 +1,17 @@
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-primary: #352958;
+$color-secondary: #B1A8CB;
+$color-accent: #B8B7BB;
+$color-background: #F2F2FE;
+$color-background-light: #FBF6FF;
+$color-background-lavender: #EFF0FF;
+$color-background-grey: #FBFBFB;
+$color-alert: #F10E00;
+
+$border-primary: 2px solid $color-primary;
+
+$desktop-breakpoint: 1440px;
+$mobile-breakpoint: $desktop-breakpoint - 1;
+$mr-mobile: 24px;
+$ml-mobile: 24px;

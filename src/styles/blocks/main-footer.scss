@@ -1,0 +1,143 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+@use "@/styles/fonts" as *;
+
+.main-footer {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+  border: $border-primary;
+  border-bottom: none;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  
+
+  @include desktop {
+    padding: 21px 37px;
+    margin-top: 80px;
+    gap: 1px;
+  }
+
+  @include mobile { 
+    gap: 28px;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    padding-top: 32px;
+    padding-bottom: 35px;
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    @include mobile {
+      gap: 28px;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  &__logo {
+
+    &-mob {
+      @include desktop {
+        display: none;
+      }
+    }
+
+    &-desc {
+      svg {
+        width: 156px;
+      }
+
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+  
+  &__copyright {
+    font-weight: $font-weight-light;
+    line-height: $line-height-regular;    
+    
+    @include mobile {
+      font-size: $font-size-xs;
+    }
+
+    @include desktop {
+      font-size: $font-size-xxs;
+    }
+  }
+  
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    
+    @include mobile {
+      align-items: center;
+      gap: 27px;
+    }
+    
+    @include desktop {
+      margin-left: auto;
+      margin-right: 60px;
+      gap: 15px;
+      align-items: flex-end;
+    }
+  }
+  
+  &__phone {
+    line-height: $line-height-regular;
+    color: $color-primary;
+    
+    @include mobile {
+      font-weight: $font-weight-normal;
+      font-size: $font-size-sm;
+      text-decoration: underline;
+    }
+
+    @include desktop {
+      font-weight: $font-weight-semibold;
+      font-size: $font-size-lg;
+    }
+  }
+  
+  &__social {
+    display: flex;
+    gap: 21px;
+    
+    @include desktop {
+      gap: 12px;
+    }
+  }
+  
+  &__social-link {
+    width: 48px;
+    height: 43px;
+
+    & svg {
+      width: 36px;
+      height: 33px;
+    }
+    
+    @include desktop {
+      width: 25px;
+      height: 25px;
+
+      & svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+}

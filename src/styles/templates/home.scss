@@ -1,0 +1,14 @@
+@use "@/styles/mixins" as *;
+
+.home {
+  section + section {
+
+    @include mobile {
+      margin-top: 35px;
+    }
+
+    @include desktop {
+      margin-top: 80px;
+    }
+  }
+}

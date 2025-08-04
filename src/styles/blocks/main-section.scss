@@ -1,0 +1,16 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/fonts" as *;
+
+.main-section {
+  &__title {
+    margin-bottom: 60px;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-regular;
+    text-align: center;
+
+    @include desktop {
+      font-size: $font-size-4xl;
+    }
+  }
+}
