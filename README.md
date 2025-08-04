@@ -1,6 +1,6 @@
 # Docker WordPress Project
 
-WordPress проект с Docker и современной системой сборки webpack.
+WordPress проект с Docker и системой сборки webpack.
 
 ## Структура проекта
 
